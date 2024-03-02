@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhppnjik7vjhy"
-path="res://.godot/imported/bush.png-d2a1a70f350f4928ff7b304371337694.ctex"
+uid="uid://b1yd54womsng5"
+path="res://.godot/imported/checkered_grid.png-5b0592e76ca6d1de1d0a7cbae02ccb8a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/objects/bush.png"
-dest_files=["res://.godot/imported/bush.png-d2a1a70f350f4928ff7b304371337694.ctex"]
+source_file="res://assets/objects/checkered_grid.png"
+dest_files=["res://.godot/imported/checkered_grid.png-5b0592e76ca6d1de1d0a7cbae02ccb8a.ctex"]
 
 [params]
 
