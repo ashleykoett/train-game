@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c3vsih813trw4" path="res://assets/objects/bg-light.png" id="2_oq7rw"]
 [ext_resource type="Texture2D" uid="uid://b1yd54womsng5" path="res://assets/objects/checkered_grid.png" id="3_w5pxq"]
 [ext_resource type="TileSet" uid="uid://c34v1ausgm34d" path="res://assets/tilesets/base_tile_set.tres" id="4_srbwr"]
-[ext_resource type="PackedScene" uid="uid://cjkym0qsj1jps" path="res://gameobjects/train.tscn" id="5_qrbr5"]
+[ext_resource type="FontFile" uid="uid://b5m8bln7nd8ja" path="res://assets/fonts/HelvetiPixel.ttf" id="6_j74uy"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_d431c")
@@ -145,5 +145,14 @@ layer_0/tile_data = PackedInt32Array(262149, 196608, 1, 262150, 196608, 1, 26214
 layer_1/name = "placement"
 layer_1/tile_data = PackedInt32Array(393220, 0, 1, 393229, 65536, 0)
 
-[node name="Train" parent="." instance=ExtResource("5_qrbr5")]
-position = Vector2(60, 38)
+[node name="Label" type="Label" parent="."]
+offset_left = 6.0
+offset_top = 165.0
+offset_right = 200.0
+offset_bottom = 213.0
+theme_override_colors/font_color = Color(0.886275, 1, 0, 1)
+theme_override_fonts/font = ExtResource("6_j74uy")
+theme_override_font_sizes/font_size = 16
+text = "click and drag to place train tracks
+press enter to start train
+press esc to stop train"

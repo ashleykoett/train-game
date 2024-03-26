@@ -4,6 +4,10 @@ signal track_updated(track_positions_arr)
 
 @onready var tile_map : TileMap = $Base_TileMap
 
+var train_path_scene_ref = preload("res://scenes/train_path_curve.tscn")
+
+var train_path : Node2D
+
 var placement_layer := 1
 var source_id := 0
 var prev_placed_pos : Vector2i
@@ -11,6 +15,9 @@ var current_dir : Vector2i
 var prev_dir : Vector2i
 var first_track_placed : bool = false
 var track_positions_arr : Array
+var world_positions_arr : Array
+
+var _placement_mode = true
 
 # atlas coords of track pieces
 var track_dict = {
@@ -23,6 +30,18 @@ var track_dict = {
 }
 
 func _input(_event): 
+	# TODO: make sure the path if valid first
+	if Input.is_action_just_pressed("ui_accept") && _placement_mode:
+		spawn_train_and_path()
+		return
+	
+	if Input.is_action_just_pressed("ui_cancel") && !_placement_mode:
+		reset_train()
+		return
+	
+	if !_placement_mode:
+		return
+	
 	var mouse_pos = get_global_mouse_position()
 	var current_pos = tile_map.local_to_map(mouse_pos)
 	
@@ -34,7 +53,7 @@ func _input(_event):
 			current_dir = Vector2i(1,0)
 			place_track(current_pos)
 			# push to tiles array
-		else: if _get_can_place(current_pos):
+		else: if _get_placement_mode(current_pos):
 			current_dir = current_pos - prev_placed_pos
 			replace_prev_track(current_pos)
 			place_track(current_pos)
@@ -67,6 +86,7 @@ func undo_last_track():
 		if index < 0:
 			first_track_placed = false
 			track_updated.emit(track_positions_arr)
+			return
 		
 		prev_placed_pos = track_positions_arr[index]
 		# if we've only placed one track, we know the direction was 1,0
@@ -80,8 +100,29 @@ func undo_last_track():
 func replace_prev_track(current_pos):
 	var track_name = _get_track()
 	tile_map.set_cell(placement_layer, prev_placed_pos, source_id, track_dict.get(track_name))
+	
+func spawn_train_and_path():
+	world_positions_arr = convert_positions_to_world(track_positions_arr)
+	_placement_mode = false
+	
+	train_path = train_path_scene_ref.instantiate()
+	train_path.points = world_positions_arr
+	call_deferred("add_child",train_path)
 
-func _get_can_place(current_pos:Vector2i):
+func reset_train():
+	train_path.queue_free()
+	world_positions_arr.clear()
+	_placement_mode = true
+	
+
+func convert_positions_to_world(tile_positions:Array):
+	var world_positions : Array = []
+	for position:Vector2i in tile_positions:
+		world_positions.push_back(tile_map.map_to_local(position))
+	
+	return world_positions
+
+func _get_placement_mode(current_pos:Vector2i):
 	var diff = current_pos - prev_placed_pos
 	
 	var cells = tile_map.get_used_cells(placement_layer)

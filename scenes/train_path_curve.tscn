@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwmrrwd11e4b2"]
+
+[ext_resource type="Script" path="res://scenes/train_path_curve.gd" id="1_k4ov5"]
+[ext_resource type="Script" path="res://scripts/train_path_follow.gd" id="2_0hspn"]
+[ext_resource type="PackedScene" uid="uid://cjkym0qsj1jps" path="res://gameobjects/train.tscn" id="3_i6xun"]
+
+[sub_resource type="Curve2D" id="Curve2D_3rqve"]
+
+[node name="train_path_curve" type="Path2D"]
+curve = SubResource("Curve2D_3rqve")
+script = ExtResource("1_k4ov5")
+
+[node name="train_path_follow" type="PathFollow2D" parent="."]
+script = ExtResource("2_0hspn")
+
+[node name="Train" parent="train_path_follow" instance=ExtResource("3_i6xun")]
+
+[node name="_Timer_22197" type="Timer" parent="train_path_follow"]
+wait_time = 0.2
+one_shot = true
