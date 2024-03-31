@@ -1,8 +1,8 @@
-extends Node2D
+extends TileMap
 
 signal track_updated(track_positions_arr)
 
-@onready var tile_map : TileMap = $Base_TileMap
+# @onready var tile_map : TileMap = $"."
 
 var train_path_scene_ref = preload("res://scenes/train_path_curve.tscn")
 
@@ -43,7 +43,7 @@ func _input(_event):
 		return
 	
 	var mouse_pos = get_global_mouse_position()
-	var current_pos = tile_map.local_to_map(mouse_pos)
+	var current_pos = local_to_map(mouse_pos)
 	
 	if Input.is_action_pressed("primary"):
 		if !first_track_placed:
@@ -68,7 +68,7 @@ func place_track(pos: Vector2i):
 	if current_dir.y != 0:
 		lookup_name = "NS"
 	
-	tile_map.set_cell(placement_layer, pos, source_id, track_dict.get(lookup_name))
+	set_cell(placement_layer, pos, source_id, track_dict.get(lookup_name))
 	
 	track_positions_arr.push_back(pos)
 	prev_placed_pos = pos
@@ -79,7 +79,7 @@ func undo_last_track():
 	# only undo placement if we have any placed tracks
 	if track_positions_arr.size() > 0:
 		var pos = track_positions_arr.pop_back()
-		tile_map.erase_cell(placement_layer, pos)
+		erase_cell(placement_layer, pos)
 		
 		var index = track_positions_arr.size() - 1
 		# we deleted the last track
@@ -99,7 +99,7 @@ func undo_last_track():
 
 func replace_prev_track(current_pos):
 	var track_name = _get_track()
-	tile_map.set_cell(placement_layer, prev_placed_pos, source_id, track_dict.get(track_name))
+	set_cell(placement_layer, prev_placed_pos, source_id, track_dict.get(track_name))
 	
 func spawn_train_and_path():
 	world_positions_arr = convert_positions_to_world(track_positions_arr)
@@ -118,14 +118,14 @@ func reset_train():
 func convert_positions_to_world(tile_positions:Array):
 	var world_positions : Array = []
 	for position:Vector2i in tile_positions:
-		world_positions.push_back(tile_map.map_to_local(position))
+		world_positions.push_back(map_to_local(position))
 	
 	return world_positions
 
 func _get_placement_mode(current_pos:Vector2i):
 	var diff = current_pos - prev_placed_pos
 	
-	var cells = tile_map.get_used_cells(placement_layer)
+	var cells = get_used_cells(placement_layer)
 	if(cells.has(current_pos)):
 		return false
 	

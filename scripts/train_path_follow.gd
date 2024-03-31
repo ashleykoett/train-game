@@ -1,6 +1,6 @@
 extends PathFollow2D
 
-var speed = 30
+var speed = 50
 var _start_motion = false
 
 func _ready():
