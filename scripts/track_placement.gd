@@ -2,12 +2,9 @@ extends TileMap
 
 signal track_updated(track_positions_arr)
 
-# @onready var tile_map : TileMap = $"."
-
 var train_path_scene_ref = preload("res://scenes/train_path_curve.tscn")
 
 var train_path : Node2D
-
 var placement_layer := 1
 var source_id := 0
 var prev_placed_pos : Vector2i
@@ -16,7 +13,6 @@ var prev_dir : Vector2i
 var first_track_placed : bool = false
 var track_positions_arr : Array
 var world_positions_arr : Array
-
 var _placement_mode = true
 
 # atlas coords of track pieces

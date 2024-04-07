@@ -1,10 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://buhuil6fpniwl"]
+[gd_scene load_steps=4 format=3 uid="uid://buhuil6fpniwl"]
 
-[ext_resource type="Texture2D" uid="uid://bt2b3hwk3jn2e" path="res://assets/objects/bg-dark.png" id="1_cmbya"]
-[ext_resource type="Script" path="res://scripts/track_placement.gd" id="1_d431c"]
-[ext_resource type="Texture2D" uid="uid://c3vsih813trw4" path="res://assets/objects/bg-light.png" id="2_oq7rw"]
 [ext_resource type="Texture2D" uid="uid://b1yd54womsng5" path="res://assets/objects/checkered_grid.png" id="3_w5pxq"]
-[ext_resource type="TileSet" uid="uid://c34v1ausgm34d" path="res://assets/tilesets/base_tile_set.tres" id="4_srbwr"]
+[ext_resource type="PackedScene" uid="uid://c8x880cjkf8jd" path="res://scenes/base_tile_map.tscn" id="5_jk36x"]
 [ext_resource type="FontFile" uid="uid://b5m8bln7nd8ja" path="res://assets/fonts/HelvetiPixel.ttf" id="6_j74uy"]
 
 [node name="Main" type="Node2D"]
@@ -71,76 +68,51 @@ modulate = Color(1, 1, 1, 0.278431)
 position = Vector2(-192, 108)
 texture = ExtResource("3_w5pxq")
 
-[node name="Bg-light" type="Sprite2D" parent="Background"]
-z_index = -1
-position = Vector2(192, 108)
-texture = ExtResource("2_oq7rw")
+[node name="CheckeredGrid13" type="Sprite2D" parent="Background"]
+modulate = Color(1, 1, 1, 0.278431)
+position = Vector2(960, 324)
+texture = ExtResource("3_w5pxq")
 
-[node name="Bg-light4" type="Sprite2D" parent="Background"]
-z_index = -1
-position = Vector2(576, 324)
-texture = ExtResource("2_oq7rw")
+[node name="CheckeredGrid14" type="Sprite2D" parent="Background"]
+modulate = Color(1, 1, 1, 0.278431)
+position = Vector2(1344, 324)
+texture = ExtResource("3_w5pxq")
 
-[node name="Bg-light3" type="Sprite2D" parent="Background"]
-z_index = -1
-position = Vector2(192, 324)
-texture = ExtResource("2_oq7rw")
+[node name="CheckeredGrid15" type="Sprite2D" parent="Background"]
+modulate = Color(1, 1, 1, 0.278431)
+position = Vector2(960, 108)
+texture = ExtResource("3_w5pxq")
 
-[node name="Bg-light2" type="Sprite2D" parent="Background"]
-z_index = -1
-position = Vector2(576, 108)
-texture = ExtResource("2_oq7rw")
+[node name="CheckeredGrid16" type="Sprite2D" parent="Background"]
+modulate = Color(1, 1, 1, 0.278431)
+position = Vector2(1344, 108)
+texture = ExtResource("3_w5pxq")
 
-[node name="Bg-light5" type="Sprite2D" parent="Background"]
-z_index = -1
-position = Vector2(576, -108)
-texture = ExtResource("2_oq7rw")
+[node name="CheckeredGrid17" type="Sprite2D" parent="Background"]
+modulate = Color(1, 1, 1, 0.278431)
+position = Vector2(192, 756)
+texture = ExtResource("3_w5pxq")
 
-[node name="Bg-light6" type="Sprite2D" parent="Background"]
-z_index = -1
-position = Vector2(-576, -108)
-texture = ExtResource("2_oq7rw")
+[node name="CheckeredGrid18" type="Sprite2D" parent="Background"]
+modulate = Color(1, 1, 1, 0.278431)
+position = Vector2(576, 756)
+texture = ExtResource("3_w5pxq")
 
-[node name="Bg-light7" type="Sprite2D" parent="Background"]
-z_index = -1
-position = Vector2(-192, -108)
-texture = ExtResource("2_oq7rw")
+[node name="CheckeredGrid19" type="Sprite2D" parent="Background"]
+modulate = Color(1, 1, 1, 0.278431)
+position = Vector2(192, 540)
+texture = ExtResource("3_w5pxq")
 
-[node name="Bg-light8" type="Sprite2D" parent="Background"]
-z_index = -1
-position = Vector2(192, -108)
-texture = ExtResource("2_oq7rw")
-
-[node name="Bg-light9" type="Sprite2D" parent="Background"]
-z_index = -1
-position = Vector2(-576, 324)
-texture = ExtResource("2_oq7rw")
-
-[node name="Bg-light10" type="Sprite2D" parent="Background"]
-z_index = -1
-position = Vector2(-192, 324)
-texture = ExtResource("2_oq7rw")
-
-[node name="Bg-light11" type="Sprite2D" parent="Background"]
-z_index = -1
-position = Vector2(-576, 108)
-texture = ExtResource("2_oq7rw")
-
-[node name="Bg-light12" type="Sprite2D" parent="Background"]
-z_index = -1
-position = Vector2(-192, 108)
-texture = ExtResource("2_oq7rw")
-
-[node name="Bg-dark" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(192, 108)
-texture = ExtResource("1_cmbya")
+[node name="CheckeredGrid20" type="Sprite2D" parent="Background"]
+modulate = Color(1, 1, 1, 0.278431)
+position = Vector2(576, 540)
+texture = ExtResource("3_w5pxq")
 
 [node name="Instructions" type="Label" parent="."]
-offset_left = 6.0
-offset_top = 165.0
-offset_right = 200.0
-offset_bottom = 213.0
+offset_left = 4.0
+offset_top = 10.0
+offset_right = 198.0
+offset_bottom = 58.0
 theme_override_colors/font_color = Color(0, 0.2, 0.552941, 1)
 theme_override_fonts/font = ExtResource("6_j74uy")
 theme_override_font_sizes/font_size = 16
@@ -148,11 +120,4 @@ text = "click and drag to place train tracks
 press enter to start train
 press esc to stop train"
 
-[node name="Base_TileMap" type="TileMap" parent="."]
-tile_set = ExtResource("4_srbwr")
-format = 2
-layer_0/name = "map"
-layer_0/tile_data = PackedInt32Array(262149, 196608, 1, 262150, 196608, 1, 262148, 196608, 1, 262147, 196608, 1, 262146, 196608, 1, 196611, 196608, 1, 196612, 196608, 1, 327682, 196608, 2, 327683, 196608, 2, 327684, 196608, 2, 327685, 196608, 2, 327686, 196608, 2, 327687, 262144, 2, 262151, 262144, 1, 196615, 262144, 0, 196614, 196608, 0, 131077, 262144, 0, 131076, 196608, 0, 131075, 196608, 0, 196613, 327680, 1, 196610, 327680, 1610612737, 131074, 131072, 0, 196609, 131072, 0, 262145, 131072, 1, 327681, 131072, 2, 458762, 131072, 2, 458763, 196608, 2, 458764, 327680, 805306369, 524300, 131072, 2, 524301, 196608, 2, 524302, 327680, 2, 524303, 262144, 2, 458767, 262144, 1, 393231, 262144, 0, 393230, 196608, 0, 393229, 327680, 1, 327693, 262144, 0, 327692, 393216, 1, 327691, 196608, 0, 327690, 131072, 0, 393226, 131072, 1, 393227, 196608, 1, 393228, 196608, 1, 458765, 196608, 1, 458766, 196608, 1, 8, 131072, 0, 9, 196608, 0, 10, 196608, 0, 11, 262144, 0, 65547, 262144, 1, 131083, 327680, 1, 131084, 262144, 0, 196620, 262144, 2, 196619, 196608, 2, 196618, 131072, 2, 65545, 196608, 2, 65544, 131072, 2, 65546, 327680, 805306369, 131082, 131072, 1)
-layer_1/name = "placement"
-layer_1/tile_data = PackedInt32Array(393220, 0, 1, 393229, 65536, 0, 131080, 0, 1)
-script = ExtResource("1_d431c")
+[node name="Base_TileMap" parent="." instance=ExtResource("5_jk36x")]
