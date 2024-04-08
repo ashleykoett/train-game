@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://buhuil6fpniwl"]
+[gd_scene load_steps=5 format=3 uid="uid://buhuil6fpniwl"]
 
 [ext_resource type="Texture2D" uid="uid://b1yd54womsng5" path="res://assets/objects/checkered_grid.png" id="3_w5pxq"]
+[ext_resource type="Script" path="res://scenes/map_camera.gd" id="4_falpw"]
 [ext_resource type="PackedScene" uid="uid://c8x880cjkf8jd" path="res://scenes/base_tile_map.tscn" id="5_jk36x"]
 [ext_resource type="FontFile" uid="uid://b5m8bln7nd8ja" path="res://assets/fonts/HelvetiPixel.ttf" id="6_j74uy"]
 
@@ -9,115 +10,177 @@
 [node name="Background" type="Node" parent="."]
 
 [node name="CheckeredGrid" type="Sprite2D" parent="Background"]
+visible = false
 modulate = Color(1, 1, 1, 0.278431)
 position = Vector2(192, 108)
 texture = ExtResource("3_w5pxq")
 
 [node name="CheckeredGrid2" type="Sprite2D" parent="Background"]
+visible = false
 modulate = Color(1, 1, 1, 0.278431)
 position = Vector2(576, 108)
 texture = ExtResource("3_w5pxq")
 
 [node name="CheckeredGrid3" type="Sprite2D" parent="Background"]
+visible = false
 modulate = Color(1, 1, 1, 0.278431)
 position = Vector2(192, 324)
 texture = ExtResource("3_w5pxq")
 
 [node name="CheckeredGrid4" type="Sprite2D" parent="Background"]
+visible = false
 modulate = Color(1, 1, 1, 0.278431)
 position = Vector2(575, 323)
 texture = ExtResource("3_w5pxq")
 
 [node name="CheckeredGrid5" type="Sprite2D" parent="Background"]
+visible = false
 modulate = Color(1, 1, 1, 0.278431)
 position = Vector2(576, -108)
 texture = ExtResource("3_w5pxq")
 
 [node name="CheckeredGrid6" type="Sprite2D" parent="Background"]
+visible = false
 modulate = Color(1, 1, 1, 0.278431)
 position = Vector2(-576, -108)
 texture = ExtResource("3_w5pxq")
 
 [node name="CheckeredGrid7" type="Sprite2D" parent="Background"]
+visible = false
 modulate = Color(1, 1, 1, 0.278431)
 position = Vector2(-192, -108)
 texture = ExtResource("3_w5pxq")
 
 [node name="CheckeredGrid8" type="Sprite2D" parent="Background"]
+visible = false
 modulate = Color(1, 1, 1, 0.278431)
 position = Vector2(192, -108)
 texture = ExtResource("3_w5pxq")
 
 [node name="CheckeredGrid9" type="Sprite2D" parent="Background"]
+visible = false
 modulate = Color(1, 1, 1, 0.278431)
 position = Vector2(-576, 324)
 texture = ExtResource("3_w5pxq")
 
 [node name="CheckeredGrid10" type="Sprite2D" parent="Background"]
+visible = false
 modulate = Color(1, 1, 1, 0.278431)
 position = Vector2(-192, 324)
 texture = ExtResource("3_w5pxq")
 
 [node name="CheckeredGrid11" type="Sprite2D" parent="Background"]
+visible = false
 modulate = Color(1, 1, 1, 0.278431)
 position = Vector2(-576, 108)
 texture = ExtResource("3_w5pxq")
 
 [node name="CheckeredGrid12" type="Sprite2D" parent="Background"]
+visible = false
 modulate = Color(1, 1, 1, 0.278431)
 position = Vector2(-192, 108)
 texture = ExtResource("3_w5pxq")
 
 [node name="CheckeredGrid13" type="Sprite2D" parent="Background"]
+visible = false
 modulate = Color(1, 1, 1, 0.278431)
 position = Vector2(960, 324)
 texture = ExtResource("3_w5pxq")
 
 [node name="CheckeredGrid14" type="Sprite2D" parent="Background"]
+visible = false
 modulate = Color(1, 1, 1, 0.278431)
 position = Vector2(1344, 324)
 texture = ExtResource("3_w5pxq")
 
 [node name="CheckeredGrid15" type="Sprite2D" parent="Background"]
+visible = false
 modulate = Color(1, 1, 1, 0.278431)
 position = Vector2(960, 108)
 texture = ExtResource("3_w5pxq")
 
 [node name="CheckeredGrid16" type="Sprite2D" parent="Background"]
+visible = false
 modulate = Color(1, 1, 1, 0.278431)
 position = Vector2(1344, 108)
 texture = ExtResource("3_w5pxq")
 
 [node name="CheckeredGrid17" type="Sprite2D" parent="Background"]
+visible = false
 modulate = Color(1, 1, 1, 0.278431)
 position = Vector2(192, 756)
 texture = ExtResource("3_w5pxq")
 
 [node name="CheckeredGrid18" type="Sprite2D" parent="Background"]
+visible = false
 modulate = Color(1, 1, 1, 0.278431)
 position = Vector2(576, 756)
 texture = ExtResource("3_w5pxq")
 
 [node name="CheckeredGrid19" type="Sprite2D" parent="Background"]
+visible = false
 modulate = Color(1, 1, 1, 0.278431)
 position = Vector2(192, 540)
 texture = ExtResource("3_w5pxq")
 
+[node name="CheckeredGrid21" type="Sprite2D" parent="Background"]
+visible = false
+modulate = Color(1, 1, 1, 0.278431)
+position = Vector2(960, 756)
+texture = ExtResource("3_w5pxq")
+
+[node name="CheckeredGrid22" type="Sprite2D" parent="Background"]
+visible = false
+modulate = Color(1, 1, 1, 0.278431)
+position = Vector2(1344, 756)
+texture = ExtResource("3_w5pxq")
+
+[node name="CheckeredGrid23" type="Sprite2D" parent="Background"]
+visible = false
+modulate = Color(1, 1, 1, 0.278431)
+position = Vector2(960, 540)
+texture = ExtResource("3_w5pxq")
+
+[node name="CheckeredGrid24" type="Sprite2D" parent="Background"]
+visible = false
+modulate = Color(1, 1, 1, 0.278431)
+position = Vector2(1344, 540)
+texture = ExtResource("3_w5pxq")
+
 [node name="CheckeredGrid20" type="Sprite2D" parent="Background"]
+visible = false
 modulate = Color(1, 1, 1, 0.278431)
 position = Vector2(576, 540)
 texture = ExtResource("3_w5pxq")
+
+[node name="Base_TileMap" parent="." instance=ExtResource("5_jk36x")]
 
 [node name="Instructions" type="Label" parent="."]
 offset_left = 4.0
 offset_top = 10.0
 offset_right = 198.0
-offset_bottom = 58.0
+offset_bottom = 75.0
 theme_override_colors/font_color = Color(0, 0.2, 0.552941, 1)
 theme_override_fonts/font = ExtResource("6_j74uy")
 theme_override_font_sizes/font_size = 16
-text = "click and drag to place train tracks
+text = "left click to place tracks
+right click to remove tracks
 press enter to start train
 press esc to stop train"
 
-[node name="Base_TileMap" parent="." instance=ExtResource("5_jk36x")]
+[node name="MapCamera" type="Camera2D" parent="."]
+position = Vector2(384, 217)
+limit_left = -500
+limit_top = -500
+limit_right = 1500
+limit_bottom = 800
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.5
+drag_top_margin = 0.5
+drag_right_margin = 0.5
+drag_bottom_margin = 0.5
+script = ExtResource("4_falpw")

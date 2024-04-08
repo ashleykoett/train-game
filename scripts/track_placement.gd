@@ -1,16 +1,18 @@
 extends TileMap
 
-signal track_updated(track_positions_arr)
+const placement_layer := 1
+const highlight_layer := 2
+const source_id := 0
 
 var train_path_scene_ref = preload("res://scenes/train_path_curve.tscn")
 
 var train_path : Node2D
-var placement_layer := 1
-var source_id := 0
-var prev_placed_pos : Vector2i
-var current_dir : Vector2i
-var prev_dir : Vector2i
+var prev_highlight_pos : Vector2i = Vector2(0,0)
+var prev_placed_pos : Vector2i = Vector2(0,0)
+var current_dir : Vector2i = Vector2i(1,0)
+var prev_dir : Vector2i = Vector2i(1,0)
 var first_track_placed : bool = false
+var highlight_placed = false
 var track_positions_arr : Array
 var world_positions_arr : Array
 var _placement_mode = true
@@ -25,7 +27,28 @@ var track_dict = {
 	"SE": Vector2i(9,0),
 }
 
-func _input(_event): 
+func _process(_delta):
+	var mouse_pos = get_global_mouse_position()
+	var current_pos = local_to_map(mouse_pos)
+	
+	# erase last highlight if we move to a new cell, or there is already a highlight placed
+	if current_pos != prev_highlight_pos && highlight_placed:
+		erase_highlight()
+	
+	# make sure we're in placement mode and not in the same position
+	if  !_placement_mode || prev_highlight_pos == current_pos:
+		return
+	
+	if !first_track_placed && !get_used_cells(placement_layer).has(current_pos):
+		place_highlight(current_pos)
+	else: if _get_can_place(current_pos):
+		current_dir = current_pos - prev_placed_pos
+		place_highlight(current_pos)
+	
+	prev_highlight_pos = current_pos
+	highlight_placed = true
+
+func _unhandled_input(_event): 
 	# TODO: make sure the path if valid first
 	if Input.is_action_just_pressed("ui_accept") && _placement_mode:
 		spawn_train_and_path()
@@ -45,15 +68,13 @@ func _input(_event):
 		if !first_track_placed:
 			# TODO: check for valid position
 			first_track_placed = true
-			prev_dir = Vector2i(1,0)
-			current_dir = Vector2i(1,0)
 			place_track(current_pos)
 			# push to tiles array
-		else: if _get_placement_mode(current_pos):
+		else: if _get_can_place(current_pos):
 			current_dir = current_pos - prev_placed_pos
-			replace_prev_track(current_pos)
+			replace_prev_track()
 			place_track(current_pos)
-	else: if Input.is_action_just_pressed("ui_undo"):
+	else: if Input.is_action_pressed("seconday") && current_pos == prev_placed_pos:
 		undo_last_track()
 
 func place_track(pos: Vector2i):
@@ -69,7 +90,24 @@ func place_track(pos: Vector2i):
 	track_positions_arr.push_back(pos)
 	prev_placed_pos = pos
 	prev_dir = current_dir
-	track_updated.emit(track_positions_arr)
+	
+	erase_highlight()
+
+func place_highlight(pos: Vector2i):
+	var lookup_name
+	if current_dir.x != 0:
+		lookup_name = "EW"
+	
+	if current_dir.y != 0:
+		lookup_name = "NS"
+	
+	set_cell(highlight_layer, pos, source_id, track_dict.get(lookup_name))
+
+	prev_highlight_pos = pos
+
+func erase_highlight():
+	erase_cell(highlight_layer, prev_highlight_pos)
+	highlight_placed = false
 
 func undo_last_track():
 	# only undo placement if we have any placed tracks
@@ -81,7 +119,6 @@ func undo_last_track():
 		# we deleted the last track
 		if index < 0:
 			first_track_placed = false
-			track_updated.emit(track_positions_arr)
 			return
 		
 		prev_placed_pos = track_positions_arr[index]
@@ -91,9 +128,8 @@ func undo_last_track():
 		# otherwise calculate the previous dir
 		else:
 			prev_dir = prev_placed_pos - track_positions_arr[index-1]
-		track_updated.emit(track_positions_arr)
 
-func replace_prev_track(current_pos):
+func replace_prev_track():
 	var track_name = _get_track()
 	set_cell(placement_layer, prev_placed_pos, source_id, track_dict.get(track_name))
 	
@@ -113,12 +149,12 @@ func reset_train():
 
 func convert_positions_to_world(tile_positions:Array):
 	var world_positions : Array = []
-	for position:Vector2i in tile_positions:
-		world_positions.push_back(map_to_local(position))
+	for pos:Vector2i in tile_positions:
+		world_positions.push_back(map_to_local(pos))
 	
 	return world_positions
 
-func _get_placement_mode(current_pos:Vector2i):
+func _get_can_place(current_pos:Vector2i):
 	var diff = current_pos - prev_placed_pos
 	
 	var cells = get_used_cells(placement_layer)
