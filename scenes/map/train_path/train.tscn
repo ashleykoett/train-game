@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cjkym0qsj1jps"]
 
-[ext_resource type="Script" path="res://scenes/map/train.gd" id="1_26ata"]
-[ext_resource type="Texture2D" uid="uid://be3ackoqvvloy" path="res://resources/sprites/train_anim-Sheet.png" id="2_7omp7"]
+[ext_resource type="Script" path="res://scenes/map/train_path/train.gd" id="1_smt7r"]
+[ext_resource type="Texture2D" uid="uid://be3ackoqvvloy" path="res://resources/sprites/train_anim-Sheet.png" id="2_y56es"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o4waq"]
 size = Vector2(22, 16)
@@ -56,10 +56,10 @@ states/train_anim/position = Vector2(324, 92)
 transitions = ["Start", "train_anim", SubResource("AnimationNodeStateMachineTransition_trnu2")]
 
 [node name="Train" type="CharacterBody2D"]
-script = ExtResource("1_26ata")
+script = ExtResource("1_smt7r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_7omp7")
+texture = ExtResource("2_y56es")
 hframes = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

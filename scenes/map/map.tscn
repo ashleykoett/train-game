@@ -161,7 +161,8 @@ offset_left = 4.0
 offset_top = 10.0
 offset_right = 198.0
 offset_bottom = 75.0
-theme_override_colors/font_color = Color(0, 0.2, 0.552941, 1)
+theme = ExtResource("5_5ihy5")
+theme_override_colors/font_color = Color(0.156863, 0.192157, 0.662745, 1)
 theme_override_fonts/font = ExtResource("3_1l2g6")
 theme_override_font_sizes/font_size = 16
 text = "left click to place tracks
@@ -180,16 +181,8 @@ position_smoothing_enabled = true
 position_smoothing_speed = 8.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
-drag_left_margin = 0.5
-drag_top_margin = 0.5
-drag_right_margin = 0.5
-drag_bottom_margin = 0.5
+drag_left_margin = 0.6
+drag_top_margin = 0.6
+drag_right_margin = 0.6
+drag_bottom_margin = 0.6
 script = ExtResource("4_hrhvq")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 23.0
-theme = ExtResource("5_5ihy5")
-text = "Number of tracjs letft"

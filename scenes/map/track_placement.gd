@@ -3,10 +3,12 @@ extends TileMap
 const placement_layer := 1
 const highlight_layer := 2
 const source_id := 0
+const total_track_pieces = 30
 
-var train_path_scene_ref = preload("res://scenes/map/train_path_curve.tscn")
+@onready var track_count_label = $CanvasLayer/TrackCountLabel
+var train_path_scene_ref = preload("res://scenes/map/train_path/train_path_curve.tscn")
 
-var train_path : Node2D
+var train_path : Node2D # hold the train node once it is spawned
 var prev_highlight_pos : Vector2i = Vector2(0,0)
 var prev_placed_pos : Vector2i = Vector2(0,0)
 var current_dir : Vector2i = Vector2i(1,0)
@@ -26,6 +28,9 @@ var track_dict = {
 	"SW": Vector2i(11,0),
 	"SE": Vector2i(9,0),
 }
+
+func _ready():
+	update_label()
 
 func _process(_delta):
 	var mouse_pos = get_global_mouse_position()
@@ -92,6 +97,7 @@ func place_track(pos: Vector2i):
 	prev_dir = current_dir
 	
 	erase_highlight()
+	update_label()
 
 func place_highlight(pos: Vector2i):
 	var lookup_name
@@ -128,6 +134,8 @@ func undo_last_track():
 		# otherwise calculate the previous dir
 		else:
 			prev_dir = prev_placed_pos - track_positions_arr[index-1]
+		
+		update_label()
 
 func replace_prev_track():
 	var track_name = _get_track()
@@ -145,7 +153,9 @@ func reset_train():
 	train_path.queue_free()
 	world_positions_arr.clear()
 	_placement_mode = true
-	
+
+func update_label():
+	track_count_label.text = "x" + str(total_track_pieces - track_positions_arr.size())
 
 func convert_positions_to_world(tile_positions:Array):
 	var world_positions : Array = []
@@ -155,6 +165,8 @@ func convert_positions_to_world(tile_positions:Array):
 	return world_positions
 
 func _get_can_place(current_pos:Vector2i):
+	if(total_track_pieces - track_positions_arr.size() == 0): return
+	
 	var diff = current_pos - prev_placed_pos
 	
 	var cells = get_used_cells(placement_layer)
