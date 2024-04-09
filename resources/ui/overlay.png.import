@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cr1mmfxs6c5t1"
-path="res://.godot/imported/track_ne.png-13f71ab7bb146df9b0e5933d577ed67e.ctex"
+uid="uid://dq1jur03kng0x"
+path="res://.godot/imported/overlay.png-5976302324803473bc9f4b0278126efd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/objects/track_ne.png"
-dest_files=["res://.godot/imported/track_ne.png-13f71ab7bb146df9b0e5933d577ed67e.ctex"]
+source_file="res://resources/ui/overlay.png"
+dest_files=["res://.godot/imported/overlay.png-5976302324803473bc9f4b0278126efd.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfmi0bhhj5wrv"
-path="res://.godot/imported/track_nw.png-b769fc45f1758e0b40e33d63ed6ceb4e.ctex"
+uid="uid://vwc2ql5mle13"
+path="res://.godot/imported/inventory_boxes.png-53b3a0895c5d3b33f0091af6d4383088.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/objects/track_nw.png"
-dest_files=["res://.godot/imported/track_nw.png-b769fc45f1758e0b40e33d63ed6ceb4e.ctex"]
+source_file="res://resources/ui/inventory_boxes.png"
+dest_files=["res://.godot/imported/inventory_boxes.png-53b3a0895c5d3b33f0091af6d4383088.ctex"]
 
 [params]
 

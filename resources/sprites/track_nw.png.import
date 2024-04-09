@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pa2lni7j3tji"
-path="res://.godot/imported/track_ns.png-112b6aafcd333151096b3e1dfdd8f8d9.ctex"
+uid="uid://bfmi0bhhj5wrv"
+path="res://.godot/imported/track_nw.png-ff3947a00454fb72252c0fbc780a8dde.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/objects/track_ns.png"
-dest_files=["res://.godot/imported/track_ns.png-112b6aafcd333151096b3e1dfdd8f8d9.ctex"]
+source_file="res://resources/sprites/track_nw.png"
+dest_files=["res://.godot/imported/track_nw.png-ff3947a00454fb72252c0fbc780a8dde.ctex"]
 
 [params]
 

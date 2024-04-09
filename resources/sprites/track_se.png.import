@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3vsih813trw4"
-path="res://.godot/imported/bg-light.png-2a4dc18dfd085b66ef118089588e6860.ctex"
+uid="uid://c1mfm2sacry4m"
+path="res://.godot/imported/track_se.png-40635f6ce826924fdcde15b104b88c18.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/objects/bg-light.png"
-dest_files=["res://.godot/imported/bg-light.png-2a4dc18dfd085b66ef118089588e6860.ctex"]
+source_file="res://resources/sprites/track_se.png"
+dest_files=["res://.godot/imported/track_se.png-40635f6ce826924fdcde15b104b88c18.ctex"]
 
 [params]
 

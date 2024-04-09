@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bt2b3hwk3jn2e"
-path="res://.godot/imported/bg-dark.png-9b7233b907fce21b67da70dc20185822.ctex"
+uid="uid://pa2lni7j3tji"
+path="res://.godot/imported/track_ns.png-1c35340ff79f121e498a699348263bfe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/objects/bg-dark.png"
-dest_files=["res://.godot/imported/bg-dark.png-9b7233b907fce21b67da70dc20185822.ctex"]
+source_file="res://resources/sprites/track_ns.png"
+dest_files=["res://.godot/imported/track_ns.png-1c35340ff79f121e498a699348263bfe.ctex"]
 
 [params]
 

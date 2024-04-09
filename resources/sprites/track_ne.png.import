@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1yd54womsng5"
-path="res://.godot/imported/checkered_grid.png-5b0592e76ca6d1de1d0a7cbae02ccb8a.ctex"
+uid="uid://cr1mmfxs6c5t1"
+path="res://.godot/imported/track_ne.png-c886e32ee6d086b5c6a2507ce50a4c16.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/objects/checkered_grid.png"
-dest_files=["res://.godot/imported/checkered_grid.png-5b0592e76ca6d1de1d0a7cbae02ccb8a.ctex"]
+source_file="res://resources/sprites/track_ne.png"
+dest_files=["res://.godot/imported/track_ne.png-c886e32ee6d086b5c6a2507ce50a4c16.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

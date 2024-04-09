@@ -4,7 +4,7 @@ const placement_layer := 1
 const highlight_layer := 2
 const source_id := 0
 
-var train_path_scene_ref = preload("res://scenes/train_path_curve.tscn")
+var train_path_scene_ref = preload("res://scenes/map/train_path_curve.tscn")
 
 var train_path : Node2D
 var prev_highlight_pos : Vector2i = Vector2(0,0)

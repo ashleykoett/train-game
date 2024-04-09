@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1rt1iic3pkg1"
-path="res://.godot/imported/base_tile_sheet.png-214cafe5d1694a78024d3df23ec6e04a.ctex"
+uid="uid://b1yd54womsng5"
+path="res://.godot/imported/checkered_grid.png-6e2f7768069e4c6a1b177f5d0bcf471a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/objects/base_tile_sheet.png"
-dest_files=["res://.godot/imported/base_tile_sheet.png-214cafe5d1694a78024d3df23ec6e04a.ctex"]
+source_file="res://resources/sprites/checkered_grid.png"
+dest_files=["res://.godot/imported/checkered_grid.png-6e2f7768069e4c6a1b177f5d0bcf471a.ctex"]
 
 [params]
 

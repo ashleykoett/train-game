@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://b5m8bln7nd8ja"
-path="res://.godot/imported/HelvetiPixel.ttf-e9377c556943871a2a466536ea1050f6.fontdata"
+path="res://.godot/imported/HelvetiPixel.ttf-8c3703985d5665e072c34a928de0c1a0.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/HelvetiPixel.ttf"
-dest_files=["res://.godot/imported/HelvetiPixel.ttf-e9377c556943871a2a466536ea1050f6.fontdata"]
+source_file="res://resources/fonts/HelvetiPixel.ttf"
+dest_files=["res://.godot/imported/HelvetiPixel.ttf-8c3703985d5665e072c34a928de0c1a0.fontdata"]
 
 [params]
 
