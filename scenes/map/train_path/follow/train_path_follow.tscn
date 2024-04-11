@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp71f23pn1mgl"]
+
+[ext_resource type="Script" path="res://scenes/map/train_path/follow/train_path_follow.gd" id="1_w1xku"]
+
+[node name="train_path_follow" type="PathFollow2D"]
+script = ExtResource("1_w1xku")
+
+[node name="_Timer_22197" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="_Timer_51280" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true

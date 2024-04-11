@@ -3,7 +3,7 @@ extends TileMap
 const placement_layer := 1
 const highlight_layer := 2
 const source_id := 0
-const total_track_pieces = 30
+const total_track_pieces = 50
 
 @onready var track_count_label = $CanvasLayer/TrackCountLabel
 var train_path_scene_ref = preload("res://scenes/map/train_path/train_path_curve.tscn")
