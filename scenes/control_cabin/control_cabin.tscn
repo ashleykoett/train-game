@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://dc1n60xpeq4t4"]
+
+[ext_resource type="Texture2D" uid="uid://c45xlul4pofsj" path="res://resources/sprites/cabin/conductors_cabin.png" id="1_3x5k2"]
+[ext_resource type="Texture2D" uid="uid://bu7phkb1drhs0" path="res://resources/sprites/cabin/drawer.png" id="2_6iova"]
+[ext_resource type="Texture2D" uid="uid://dmfvop1q3xtvi" path="res://resources/sprites/cabin/map.png" id="3_qks06"]
+[ext_resource type="Texture2D" uid="uid://x58oitwvwjec" path="res://resources/sprites/cabin/paper.png" id="4_53vik"]
+[ext_resource type="Texture2D" uid="uid://diww3favg3ndj" path="res://resources/sprites/cabin/wheel.png" id="5_rfu8a"]
+[ext_resource type="Texture2D" uid="uid://dfhp71hpwbspx" path="res://resources/sprites/cabin/cal.png" id="6_lsedt"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(0, 2)
+
+[node name="ConductorsCabin" type="Sprite2D" parent="."]
+position = Vector2(384, 214)
+texture = ExtResource("1_3x5k2")
+
+[node name="Drawer" type="Sprite2D" parent="."]
+position = Vector2(221, 382)
+texture = ExtResource("2_6iova")
+
+[node name="Map" type="Sprite2D" parent="."]
+position = Vector2(115, 165)
+texture = ExtResource("3_qks06")
+
+[node name="Paper" type="Sprite2D" parent="."]
+position = Vector2(238, 284)
+texture = ExtResource("4_53vik")
+
+[node name="Wheel" type="Sprite2D" parent="."]
+position = Vector2(384, 270)
+texture = ExtResource("5_rfu8a")
+
+[node name="Cal" type="Sprite2D" parent="."]
+position = Vector2(641, 135)
+texture = ExtResource("6_lsedt")
