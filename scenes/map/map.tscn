@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://byqtvsgjx3uf4"]
+[gd_scene load_steps=7 format=3 uid="uid://byqtvsgjx3uf4"]
 
+[ext_resource type="Script" path="res://scenes/map/map.gd" id="1_2npot"]
 [ext_resource type="Texture2D" uid="uid://b1yd54womsng5" path="res://resources/sprites/checkered_grid.png" id="1_53adl"]
 [ext_resource type="PackedScene" uid="uid://c8x880cjkf8jd" path="res://scenes/map/base_tile_map.tscn" id="2_40baw"]
 [ext_resource type="FontFile" uid="uid://b5m8bln7nd8ja" path="res://resources/fonts/HelvetiPixel.ttf" id="3_1l2g6"]
@@ -7,6 +8,7 @@
 [ext_resource type="Theme" uid="uid://bhelgqpqjhcin" path="res://themes/text.tres" id="5_5ihy5"]
 
 [node name="Map" type="Node2D"]
+script = ExtResource("1_2npot")
 
 [node name="Background" type="Node" parent="."]
 

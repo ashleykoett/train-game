@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="TrainGame"
-run/main_scene="res://scenes/map/map.tscn"
+run/main_scene="res://scenes/control_cabin/control_cabin.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SceneSwitcher="*res://global/scene_switcher.gd"
 
 [display]
 

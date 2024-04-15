@@ -1,11 +1,33 @@
-[gd_scene load_steps=7 format=3 uid="uid://dc1n60xpeq4t4"]
+[gd_scene load_steps=18 format=3 uid="uid://dc1n60xpeq4t4"]
 
 [ext_resource type="Texture2D" uid="uid://c45xlul4pofsj" path="res://resources/sprites/cabin/conductors_cabin.png" id="1_3x5k2"]
 [ext_resource type="Texture2D" uid="uid://bu7phkb1drhs0" path="res://resources/sprites/cabin/drawer.png" id="2_6iova"]
+[ext_resource type="Script" path="res://scripts/control_cabin_element.gd" id="2_uc683"]
 [ext_resource type="Texture2D" uid="uid://dmfvop1q3xtvi" path="res://resources/sprites/cabin/map.png" id="3_qks06"]
 [ext_resource type="Texture2D" uid="uid://x58oitwvwjec" path="res://resources/sprites/cabin/paper.png" id="4_53vik"]
+[ext_resource type="Texture2D" uid="uid://c52nl1ahb6wvm" path="res://resources/sprites/cabin/map_highlight.png" id="5_ky881"]
 [ext_resource type="Texture2D" uid="uid://diww3favg3ndj" path="res://resources/sprites/cabin/wheel.png" id="5_rfu8a"]
 [ext_resource type="Texture2D" uid="uid://dfhp71hpwbspx" path="res://resources/sprites/cabin/cal.png" id="6_lsedt"]
+[ext_resource type="Texture2D" uid="uid://dmt0ld28f2lfi" path="res://resources/sprites/cabin/cal_highlight.png" id="9_1gctc"]
+[ext_resource type="Texture2D" uid="uid://b3gynjirgt55g" path="res://resources/sprites/cabin/wheel_highlight.png" id="9_dneeu"]
+[ext_resource type="Texture2D" uid="uid://ku6tiq6e0iuu" path="res://resources/sprites/cabin/paper_highlight.png" id="9_mqqg8"]
+[ext_resource type="Texture2D" uid="uid://b7c3kxsri6sqd" path="res://resources/sprites/cabin/drawer_highlight.png" id="11_rt2lf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygwib"]
+size = Vector2(28.3261, 175.021)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ugih"]
+size = Vector2(78.2281, 92.6382)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xjl0k"]
+radius = 31.0
+height = 126.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7063p"]
+size = Vector2(96, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3cyeo"]
+size = Vector2(126, 85)
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(0, 2)
@@ -14,22 +36,83 @@ position = Vector2(0, 2)
 position = Vector2(384, 214)
 texture = ExtResource("1_3x5k2")
 
-[node name="Drawer" type="Sprite2D" parent="."]
+[node name="Map" type="Area2D" parent="."]
+position = Vector2(114, 156)
+script = ExtResource("2_uc683")
+highlight_texture = ExtResource("5_ky881")
+scene_to_open = "res://scenes/map/map.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map"]
+position = Vector2(0.0142212, 1.06131)
+rotation = -0.227912
+scale = Vector2(4.78978, -0.698164)
+shape = SubResource("RectangleShape2D_ygwib")
+
+[node name="SpriteComp" type="Sprite2D" parent="Map"]
+position = Vector2(4, 8)
+texture = ExtResource("3_qks06")
+
+[node name="Calendar" type="Area2D" parent="."]
+position = Vector2(635, 136)
+rotation = 0.142321
+script = ExtResource("2_uc683")
+highlight_texture = ExtResource("9_1gctc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Calendar"]
+position = Vector2(3.61401, -1.9309)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_0ugih")
+
+[node name="SpriteComp" type="Sprite2D" parent="Calendar"]
+position = Vector2(5.79755, -1.84094)
+rotation = -0.142321
+scale = Vector2(1, 1)
+texture = ExtResource("6_lsedt")
+
+[node name="Wheel" type="Area2D" parent="."]
+position = Vector2(384, 266)
+script = ExtResource("2_uc683")
+highlight_texture = ExtResource("9_dneeu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel"]
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_xjl0k")
+
+[node name="SpriteComp" type="Sprite2D" parent="Wheel"]
+position = Vector2(0, 4)
+texture = ExtResource("5_rfu8a")
+
+[node name="Paper" type="Area2D" parent="."]
+position = Vector2(240, 280)
+script = ExtResource("2_uc683")
+highlight_texture = ExtResource("9_mqqg8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paper"]
+position = Vector2(-3, 0)
+shape = SubResource("RectangleShape2D_7063p")
+
+[node name="SpriteComp" type="Sprite2D" parent="Paper"]
+texture = ExtResource("4_53vik")
+
+[node name="Drawer" type="Area2D" parent="."]
+script = ExtResource("2_uc683")
+highlight_texture = ExtResource("11_rt2lf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Drawer"]
+position = Vector2(221, 380.5)
+shape = SubResource("RectangleShape2D_3cyeo")
+
+[node name="SpriteComp" type="Sprite2D" parent="Drawer"]
 position = Vector2(221, 382)
 texture = ExtResource("2_6iova")
 
-[node name="Map" type="Sprite2D" parent="."]
-position = Vector2(115, 165)
-texture = ExtResource("3_qks06")
-
-[node name="Paper" type="Sprite2D" parent="."]
-position = Vector2(238, 284)
-texture = ExtResource("4_53vik")
-
-[node name="Wheel" type="Sprite2D" parent="."]
-position = Vector2(384, 270)
-texture = ExtResource("5_rfu8a")
-
-[node name="Cal" type="Sprite2D" parent="."]
-position = Vector2(641, 135)
-texture = ExtResource("6_lsedt")
+[connection signal="mouse_entered" from="Map" to="Map" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Map" to="Map" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Calendar" to="Calendar" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Calendar" to="Calendar" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Wheel" to="Wheel" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Wheel" to="Wheel" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Paper" to="Paper" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Paper" to="Paper" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Drawer" to="Drawer" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Drawer" to="Drawer" method="_on_mouse_exited"]
